@@ -4176,10 +4176,6 @@
 /turf/open/floor/suns/dark/plain,
 /area/ship/security)
 "ys" = (
-/obj/machinery/door/poddoor{
-	id = "Panacea_entrance_blast";
-	dir = 4
-	},
 /obj/docking_port/mobile{
 	dir = 2;
 	launch_status = 0;
@@ -4728,10 +4724,6 @@
 	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
-	},
-/obj/machinery/door/poddoor{
-	id = "Panacea_entrance_blast";
-	dir = 4
 	},
 /turf/open/floor/suns/grid,
 /area/ship/crew/office/lobby)
@@ -5568,6 +5560,17 @@
 	},
 /turf/open/floor/suns/pattern,
 /area/ship/crew/office/lobby)
+"GB" = (
+/obj/structure/window/reinforced/fulltile,
+/obj/structure/grille,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ship/bridge)
 "GI" = (
 /obj/structure/table,
 /obj/effect/turf_decal/suns/line/marble/fill,
@@ -9560,7 +9563,7 @@ mB
 SO
 SO
 SO
-SO
+GB
 SO
 Dp
 zc
