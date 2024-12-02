@@ -717,6 +717,14 @@ EMPTY_GUN_HELPER(shotgun/flamingarrow/conflagration)
 	allowed_ammo_types = list(
 		/obj/item/ammo_box/magazine/internal/shot/beacon,
 	)
+	valid_attachments = list(
+		/obj/item/attachment/silencer,
+		/obj/item/attachment/laser_sight,
+		/obj/item/attachment/rail_light,
+		/obj/item/attachment/bayonet,
+		/obj/item/attachment/gun,
+		/obj/item/attachment/alof
+	)
 	fire_sound = 'sound/weapons/gun/revolver/shot_hunting.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
