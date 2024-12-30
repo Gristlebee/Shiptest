@@ -143,6 +143,7 @@
 		to_chat(user, span_notice("You load the [C] into \the [src]."))
 		playsound(src, load_sound, load_sound_volume, load_sound_vary)
 		update_appearance()
+		SEND_SIGNAL(src,COMSIG_ATTACHMENT_UPDATE_CELL)
 		return TRUE
 	else
 		to_chat(user, span_warning("You cannot seem to get \the [src] out of your hands!"))
@@ -167,6 +168,7 @@
 			return
 
 	user.put_in_hands(old_cell)
+	SEND_SIGNAL(src,COMSIG_ATTACHMENT_UPDATE_CELL)
 	update_appearance()
 
 /obj/item/gun/energy/screwdriver_act(mob/living/user, obj/item/I)

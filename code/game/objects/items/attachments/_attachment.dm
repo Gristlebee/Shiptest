@@ -21,6 +21,9 @@
 	var/toggle_on_sound = 'sound/items/flashlight_on.ogg'
 	var/toggle_off_sound = 'sound/items/flashlight_off.ogg'
 
+	///The cell of the attached gun, if any
+	var/obj/item/stock_parts/cell/gun/gun_cell
+
 	///Determines the amount of pixels to move the icon state for the overlay. in the x direction
 	var/pixel_shift_x = 16
 	///Determines the amount of pixels to move the icon state for the overlay. in the y direction
@@ -53,6 +56,7 @@
 		CALLBACK(src, PROC_REF(on_wield)), \
 		CALLBACK(src, PROC_REF(on_unwield)), \
 		CALLBACK(src, PROC_REF(on_examine)), \
+		CALLBACK(src, PROC_REF(update_cell)), \
 		signals)
 
 /obj/item/attachment/Destroy()
@@ -75,6 +79,9 @@
 		to_chat(user, span_warning("You cannot attach [src] while it is active!"))
 		return FALSE
 
+	if(gun.cell)
+		gun_cell = gun.cell
+
 	apply_modifiers(gun, user, TRUE)
 	playsound(src.loc, 'sound/weapons/gun/pistol/mag_insert_alt.ogg', 75, 1)
 	return TRUE
@@ -84,6 +91,8 @@
 
 	if(toggled)
 		toggle_attachment(gun, user)
+
+	gun_cell = null
 
 	apply_modifiers(gun, user, FALSE)
 	playsound(src.loc, 'sound/weapons/gun/pistol/mag_release_alt.ogg', 75, 1)
@@ -108,6 +117,10 @@
 	return FALSE
 
 /obj/item/attachment/proc/on_examine(obj/item/gun/gun, mob/user, list/examine_list)
+	return
+
+/obj/item/attachment/proc/update_cell(obj/item/gun/gun, mob/user, list/examine_list)
+	gun_cell = gun.cell
 	return
 
 /obj/item/attachment/examine(mob/user)

@@ -36,6 +36,7 @@
 	RegisterSignal(parent, COMSIG_CLICK_ALT, PROC_REF(handle_alt_click))
 	RegisterSignal(parent, COMSIG_CLICK_UNIQUE_ACTION, PROC_REF(handle_unique_action))
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(handle_overlays))
+	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(update_cell))
 
 	if(length(default_attachments))
 		for(var/attachment in default_attachments)
@@ -217,4 +218,11 @@
 
 	for(var/obj/item/attach as anything in attachments)
 		if(SEND_SIGNAL(attach, COMSIG_ATTACHMENT_UNIQUE_ACTION, parent, user, params))
+			return TRUE
+
+/datum/component/attachment_holder/proc/handle_cell(obj/item/parent, mob/user, params)
+	SIGNAL_HANDLER
+
+	for(var/obj/item/attach as anything in attachments)
+		if(SEND_SIGNAL(attach, COMSIG_ATTACHMENT_UPDATE_CELL, parent, user, params))
 			return TRUE
