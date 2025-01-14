@@ -258,6 +258,14 @@
 	icon_living = "syndicate_stormtrooper_shotgun"
 	armor_base = /obj/item/clothing/suit/space/hardsuit/syndi
 
+/mob/living/simple_animal/hostile/human/syndicate/ranged/sniper
+	name = "Ramzi Clique Deadeye"
+	desc = "bang bang"
+	icon_state = "syndicate_stormtrooper_shotgun"
+	icon_living = "syndicate_stormtrooper_shotgun"
+	armor_base = /obj/item/clothing/suit/space/hardsuit/syndi
+	casingtype = /obj/item/ammo_casing/p50
+
 ///////////////Misc////////////
 
 /mob/living/simple_animal/hostile/human/syndicate/civilian
