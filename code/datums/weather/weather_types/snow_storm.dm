@@ -30,4 +30,6 @@
 
 /datum/weather/snow_storm/weather_act(mob/living/living_mob)
 	living_mob.adjust_bodytemperature(-rand(2,4))
+	L.adjustFireLoss(4)
+
 

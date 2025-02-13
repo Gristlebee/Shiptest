@@ -86,6 +86,8 @@
 	/// Whether area is underground, important for weathers which shouldn't affect caves etc.
 	var/underground = FALSE
 
+	var/valid_escape = FALSE
+
 
 /**
  * A list of teleport locations

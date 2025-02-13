@@ -94,8 +94,8 @@
 	// 	forge_objectives()
 	owner.current.grant_all_languages(FALSE, FALSE, TRUE)	//Grants omnitongue. We are able to transform our body after all.
 	START_PROCESSING(SSobj, src)
-	. = ..()
 	create_objectives()
+	. = ..()
 	owner.current.log_message("has been assimilated!", LOG_ATTACK, color = "red")
 
 /datum/antagonist/changeling/on_removal()

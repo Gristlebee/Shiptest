@@ -69,7 +69,7 @@
 	helptext = "The victim will transform much like a changeling would. Does not provide a warning to others. Mutations will not be transferred, and monkeys will become human."
 	button_icon_state = "sting_transform"
 	chemical_cost = 50
-	dna_cost = 3
+	dna_cost = -1
 	var/datum/changelingprofile/selected_dna = null
 
 /datum/action/changeling/sting/transformation/Trigger()
@@ -116,7 +116,7 @@
 	helptext = "The victim will form an armblade much like a changeling would, except the armblade is dull and useless."
 	button_icon_state = "sting_armblade"
 	chemical_cost = 20
-	dna_cost = 1
+	dna_cost = -1
 
 /obj/item/melee/arm_blade/false
 	desc = "A grotesque mass of flesh that used to be your arm. Although it looks dangerous at first, you can tell it's actually quite dull and useless."
@@ -168,7 +168,7 @@
 	helptext = "Will give you the DNA of your target, allowing you to transform into them."
 	button_icon_state = "sting_extract"
 	chemical_cost = 25
-	dna_cost = 0
+	dna_cost = -1
 
 /datum/action/changeling/sting/extract_dna/can_sting(mob/user, mob/target)
 	if(..())
@@ -206,7 +206,7 @@
 /datum/action/changeling/sting/blind/sting_action(mob/user, mob/living/carbon/target)
 	log_combat(user, target, "stung", "blind sting")
 	to_chat(target, "<span class='danger'>Your eyes burn horrifically!</span>")
-	target.become_nearsighted(EYE_DAMAGE)
+	//target.become_nearsighted(EYE_DAMAGE)
 	target.blind_eyes(20)
 	target.blur_eyes(40)
 	return TRUE

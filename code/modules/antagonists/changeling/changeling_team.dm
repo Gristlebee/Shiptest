@@ -36,7 +36,9 @@
 	explanation_text = "Assimilate all station crewmembers. Third parties may be ignored, but new recruits always helps."
 	team_explanation_text = "Assimilate all station crewmembers. Third parties may be ignored, but new recruits always helps."
 
-/datum/objective/assassinate/check_completion()
+/datum/objective/total_assimilation/check_completion()
+	var/humans = 0
+	var/thinglings = 0
 	for(var/mob/living/carbon/human/assimilated in GLOB.player_list)
 		if(!assimilated.client)
 			continue
@@ -45,8 +47,27 @@
 		// if(!(assimilated.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
 		// 	continue
 		if(!assimilated.mind.has_antag_datum(/datum/antagonist/changeling))
-			return FALSE
-	return TRUE
+			humans++
+
+		thinglings++
+	return (humans < thinglings)
+
+/datum/objective/break_quarentine
+	name = "Escape"
+	explanation_text = "One of us must escape off world to continue to spread our family."
+	team_explanation_text = "One of us must escape off world to continue to spread our family. Get one of us on a shuttle to escape this frozen prison."
+
+
+/datum/objective/break_quarentine
+	for(var/mob/living/carbon/human/assimilated in GLOB.player_list)
+		if(assimilated.mind)
+			continue
+		if(assimilated.mind.has_antag_datum(/datum/antagonist/changeling))
+			var/area/escape = get_area(assimilated)
+			if(escape.valid_escape)
+				return TRUE
+
+	return FALSE
 
 /datum/team/revolution/roundend_report()
 	if(!members.len)
@@ -56,7 +77,7 @@
 
 	for(var/datum/objective/assimilate as anything in objectives)
 		if(assimilate.check_completion())
-			report = "<span class='greentext big'>The thinglings win! Everyone was assimilated!</span>"
+			report = "<span class='greentext big'>The thinglings assimimilated a majority of the survivors...</span>"
 		else
 			report = "<span class='redtext big'>The thinglings have failed!</span>"
 
