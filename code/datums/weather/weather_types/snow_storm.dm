@@ -29,7 +29,9 @@
 	sound_weak_inside = /datum/looping_sound/weak_inside_ashstorm
 
 /datum/weather/snow_storm/weather_act(mob/living/living_mob)
+	if("snow" living_mob.weather_immunities)
+		return
 	living_mob.adjust_bodytemperature(-rand(2,4))
-	L.adjustFireLoss(4)
+	living_mob.adjustFireLoss(4)
 
 

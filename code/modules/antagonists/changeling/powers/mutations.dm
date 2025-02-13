@@ -300,6 +300,16 @@
 		loc.visible_message("<span class='warning'>[loc.name]\'s flesh rapidly inflates, forming a bloated mass around [loc.p_their()] body!</span>", "<span class='warning'>We inflate our flesh, creating a spaceproof suit!</span>", "<span class='hear'>You hear organic matter ripping and tearing!</span>")
 	START_PROCESSING(SSobj, src)
 
+/obj/item/clothing/suit/space/changeling/equipped(mob/user, slot)
+	. = ..()
+	var/mob/living/the_mob = user
+	the_mob.weather_immunities += "snow"
+
+/obj/item/clothing/suit/space/changeling/dropped(mob/user)
+	. = ..()
+	var/mob/living/the_mob = user
+	initial(the_mob.weather_immunities)
+
 /obj/item/clothing/suit/space/changeling/process()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc

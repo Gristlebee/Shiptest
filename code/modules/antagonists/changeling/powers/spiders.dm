@@ -4,7 +4,7 @@
 	helptext = "The spiders are thoughtless creatures, and may attack their creators when fully grown. Requires at least 3 DNA absorptions."
 	button_icon_state = "spread_infestation"
 	chemical_cost = 45
-	dna_cost = 1
+	dna_cost = -1
 	req_absorbs = 3
 
 //Makes some spiderlings. Good for setting traps and causing general trouble.
