@@ -308,7 +308,7 @@
 /obj/item/clothing/suit/space/changeling/dropped(mob/user)
 	. = ..()
 	var/mob/living/the_mob = user
-	initial(the_mob.weather_immunities)
+	the_mob.weather_immunities= initial(the_mob.weather_immunities)
 
 /obj/item/clothing/suit/space/changeling/process()
 	if(ishuman(loc))

@@ -1739,6 +1739,8 @@
 #include "code\modules\antagonists\changeling\changeling.dm"
 #include "code\modules\antagonists\changeling\changeling_team.dm"
 #include "code\modules\antagonists\changeling\changeling_power.dm"
+#include "code\modules\antagonists\changeling\sample.dm"
+#include "code\modules\antagonists\changeling\testmaker.dm"
 #include "code\modules\antagonists\changeling\powers\absorb.dm"
 #include "code\modules\antagonists\changeling\powers\adrenaline.dm"
 #include "code\modules\antagonists\changeling\powers\augmented_eyesight.dm"

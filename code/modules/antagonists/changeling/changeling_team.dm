@@ -58,7 +58,7 @@
 	team_explanation_text = "One of us must escape off world to continue to spread our family. Get one of us on a shuttle to escape this frozen prison."
 
 
-/datum/objective/break_quarentine
+/datum/objective/break_quarentine/check_completion()
 	for(var/mob/living/carbon/human/assimilated in GLOB.player_list)
 		if(assimilated.mind)
 			continue
